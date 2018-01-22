@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 
+
 import model.Image;
 
 /**
@@ -12,7 +13,7 @@ import model.Image;
  * 
  * @see ProxyFactory
  * 
- * @author François Caron <francois.caron.7@ens.etsmtl.ca>
+ * @author Franï¿½ois Caron <francois.caron.7@ens.etsmtl.ca>
  */
 public interface ImageFactory {
 
@@ -20,6 +21,7 @@ public interface ImageFactory {
 	 * Create a new concrete Image instance using the file handle.
 	 * @param file The file handle to the Image file.
 	 * @return A new concrete Image instance or null if something went wrong.
+	 *
 	 */
 	public abstract Image build(File file);
 }

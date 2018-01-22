@@ -7,13 +7,13 @@ import javax.swing.filechooser.FileFilter;
 /**
  * Strict file filter for a JFileChooser that only accepts specific files.
  * 
- * @author rançois Caron <francois.caron.7@ens.etsmtl.ca>
+ * @author ranï¿½ois Caron <francois.caron.7@ens.etsmtl.ca>
  */
 public class ImageFileFilter extends FileFilter {
 	/* unique file extension allowed */
-	private static final String EXTENSION = "ras";
+	private static final String EXTENSION = "bmp";
 	
-	@Override
+	
 	public boolean accept(File arg0) {
 		/* accept directories */
 		if(arg0.isDirectory()) 
@@ -27,10 +27,10 @@ public class ImageFileFilter extends FileFilter {
 		return name.substring(pos).equals(EXTENSION);
 	}
 
-	@Override
+	
 	public String getDescription() {
 		/* This String will be displayed in the file type combobox */
-		return "Sun Raster File (*.ras)";
+		return "BMP (*.bmp)";
 	}
 
 }

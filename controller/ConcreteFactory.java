@@ -1,23 +1,32 @@
 package controller;
 
 import java.io.File;
+import java.io.IOException;
 
 import model.Image;
+import model.ImageBMP;
+
 
 public class ConcreteFactory implements ImageFactory {
 
-	ImageFactory instance;
-	@Override
+	static ImageFactory instance;
 	
-	public ImageFactory getInstance(){
+	public static ImageFactory getInstance(){
 		return instance;
 	}
 	
 	public Image build(File file) {
-		// TODO Auto-generated method stub
-		Image image = null;
+			
+		Image BmpImg = null;
+		try {
+			BmpImg = new ImageBMP(file);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		return image;
+		return BmpImg;
+
 	}
 
 }

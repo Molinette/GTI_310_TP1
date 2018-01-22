@@ -9,7 +9,7 @@ import java.io.File;
  * the ProxyImage will sent information to the caller (false one in most cases,
  * but it is better than a NullPointerException).
  * 
- * @author François Caron <francois.caron.7@ens.etsmtl.ca>
+ * @author Franï¿½ois Caron <francois.caron.7@ens.etsmtl.ca>
  */
 public class ProxyImage extends Image {
 
@@ -24,7 +24,7 @@ public class ProxyImage extends Image {
 		super._file = file;		
 	}
 	
-	@Override
+	
 	public BufferedImage draw() {
 		/* if the Image is not created, instanciate it */
 		if (_concrete != null)
@@ -34,7 +34,7 @@ public class ProxyImage extends Image {
 		return null;
 	}
 
-	@Override
+	
 	public int getHeight() {
 		/* if the Image is not created, send false information */
 		if(_concrete == null)
@@ -43,7 +43,7 @@ public class ProxyImage extends Image {
 			return _concrete.getHeight();
 	}
 
-	@Override
+	
 	public int getWidth() {
 		/* if the Image is not created, send false information */
 		if(_concrete == null)
