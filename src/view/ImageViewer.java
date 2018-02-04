@@ -15,7 +15,7 @@ import javax.swing.JTabbedPane;
 import model.Image;
 import controller.ConcreteFactory;
 import controller.ImageFileFilter;
-import controller.ProxyFactory;
+import controller.ImageFactory;
 
 /**
  * The ImageViewer class is a JFrame in which it is possible to view many
@@ -62,12 +62,12 @@ public class ImageViewer extends JFrame implements ActionListener {
 	 * @param file The handle to the image file that will be displayed.
 	 */
 	private void addTab(File file) {
-		/* create a proxy image*/
-		Image image = ProxyFactory.getInstance().build(file);
+		/* create a  image*/
+		Image image = ConcreteFactory.getInstance().build(file);
 		 //Image image = ConcreteFactory.getInstance().build(file);
 		
 		/* 
-		 * if the proxy was created successfuly, add a tab to display the
+		 * if the  was created successfuly, add a tab to display the
 		 * image.
 		 */
 		if(image != null)

@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -19,7 +20,7 @@ public class ConcreteFactory implements ImageFactory {
 			
 		Image BmpImg = null;
 		try {
-			BmpImg = new ImageBMP(file);
+			BmpImg = new ImageBMP(file).draw();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
