@@ -6,27 +6,32 @@ import java.io.IOException;
 
 import model.Image;
 import model.ImageBMP;
-
+/**
+ * 
+ * @author Benjamin Brular
+ *
+ */
 
 public class ConcreteFactory implements ImageFactory {
 
-	static ImageFactory instance;
+	static ImageFactory _instance;
 	
 	public static ImageFactory getInstance(){
-		return instance;
+		if(_instance == null)
+			_instance = new ConcreteFactory();
+		return _instance;
 	}
 	
 	public Image build(File file) {
-			
-		Image BmpImg = null;
+		ImageBMP bmpImg = null;
 		try {
-			BmpImg = new ImageBMP(file).draw();
+			bmpImg = new ImageBMP(file);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return BmpImg;
+		return bmpImg;
 
 	}
 

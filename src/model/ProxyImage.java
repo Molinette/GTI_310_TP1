@@ -3,13 +3,15 @@ package model;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import controller.ConcreteFactory;
+
 /**
  * The ProxyImage object acts as an intermediate between the actual Image and
  * the object using the Image. As long as the Image doesn't need to be drawn,
  * the ProxyImage will sent information to the caller (false one in most cases,
  * but it is better than a NullPointerException).
  * 
- * @author Franï¿½ois Caron <francois.caron.7@ens.etsmtl.ca>
+ * @author François Caron <francois.caron.7@ens.etsmtl.ca>
  */
 public class ProxyImage extends Image {
 
@@ -21,12 +23,15 @@ public class ProxyImage extends Image {
 	 * @param file The handle to the image file.
 	 */
 	public ProxyImage(File file) {
-		super._file = file;		
+		super._file = file;
 	}
 	
 	
 	public BufferedImage draw() {
 		/* if the Image is not created, instanciate it */
+		if(_concrete == null)
+			_concrete = ConcreteFactory.getInstance().build(_file);
+				
 		if (_concrete != null)
 			return _concrete.draw();
 		

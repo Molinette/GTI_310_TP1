@@ -15,13 +15,14 @@ import javax.swing.JTabbedPane;
 import model.Image;
 import controller.ConcreteFactory;
 import controller.ImageFileFilter;
+import controller.ProxyFactory;
 import controller.ImageFactory;
 
 /**
  * The ImageViewer class is a JFrame in which it is possible to view many
  * images at the same time. Each image will be displayed on a tab.
  * 
- * @author Franï¿½ois Caron <francois.caron.7@ens.etsmtl.ca>
+ * @author François Caron <francois.caron.7@ens.etsmtl.ca>
  */
 public class ImageViewer extends JFrame implements ActionListener {
 	/** Generated serial version ID */
@@ -63,8 +64,7 @@ public class ImageViewer extends JFrame implements ActionListener {
 	 */
 	private void addTab(File file) {
 		/* create a  image*/
-		Image image = ConcreteFactory.getInstance().build(file);
-		 //Image image = ConcreteFactory.getInstance().build(file);
+		Image image = ProxyFactory.getInstance().build(file);
 		
 		/* 
 		 * if the  was created successfuly, add a tab to display the
